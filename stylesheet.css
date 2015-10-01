@@ -16,3 +16,9 @@ table {
 div {
 	text-align: center;
 }
+
+th {
+	border: 1px;
+	border-style: solid;
+	border-color: darkblue;
+}
