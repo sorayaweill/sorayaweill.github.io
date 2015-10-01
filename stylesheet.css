@@ -9,5 +9,5 @@ body {
 table {
 	border: 1px;
 	border-style: solid;
-	border: darkblue;
+	border-color: darkblue;
 }
