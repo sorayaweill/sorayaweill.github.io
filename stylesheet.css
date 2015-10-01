@@ -1,0 +1,13 @@
+p, h1, h3 {
+        font-family: "Times New Roman";
+    }
+
+body {
+	background-color: aliceblue;
+}
+
+table {
+	border: 1px;
+	border-style: solid;
+	border: darkblue;
+}
