@@ -1,6 +1,19 @@
-p, h1, h3, li {
+p {
         font-family: "Times New Roman";
-    }
+}
+
+h1 {
+        font-family: "Times New Roman";
+}
+
+h3 {
+        font-family: "Times New Roman";
+}
+
+li {
+        font-family: "Times New Roman";
+}
+
 
 body {
 	/*    Inspired by https://css-tricks.com/perfect-full-page-background-image/    */
@@ -31,4 +44,5 @@ th {
 .window {
 	background-color: white;
 	width: 400px;
+	text-align: center;
 }
