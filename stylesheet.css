@@ -27,3 +27,7 @@ th {
 	border-style: solid;
 	border-color: darkblue;
 }
+
+.window {
+	background-color: white;
+}
