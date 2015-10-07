@@ -1,17 +1,6 @@
-p {
+p, h1, h3, li {
         font-family: "Times New Roman";
-}
-
-h1 {
-        font-family: "Times New Roman";
-}
-
-h3 {
-        font-family: "Times New Roman";
-}
-
-li {
-        font-family: "Times New Roman";
+        text-align: center;
 }
 
 
@@ -29,11 +18,14 @@ table {
 	border-style: solid;
 	border-color: darkblue;
 	background-color: white;
+	margin-left:auto; 
+    margin-right:auto;
 }
 
-div {
-	text-align: center;
+li {
+	text-align: left;
 }
+
 
 th {
 	border: 1px;
@@ -41,18 +33,25 @@ th {
 	border-color: darkblue;
 }
 
+td {
+	vertical-align: top;
+}
+
 .window {
 	background-color: white;
 	width: 400px;
+	padding: 20px 0px 20px 0px;
 }
 
 .buttons {
 	border-radius: 5px;
 	border: 2px solid #6495ED;
 	background-color: #BCD2EE;
-	height: 50px;
+	height: auto;
 	width: 120px;
 	margin: auto;
 	text-align: center;
 }
+
+
 
