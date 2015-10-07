@@ -18,8 +18,8 @@ table {
 	border-style: solid;
 	border-color: darkblue;
 	background-color: white;
-	margin-left:auto; 
-    margin-right:auto;
+	margin-left: auto; 
+    margin-right: auto;
 }
 
 li {
@@ -28,9 +28,7 @@ li {
 
 
 th {
-	border: 1px;
-	border-style: solid;
-	border-color: darkblue;
+	border: 0px;
 }
 
 td {
@@ -52,6 +50,8 @@ td {
 	margin: auto;
 	text-align: center;
 }
+
+/*Link Styling*/
 
 a:link {
 	color: darkblue;
