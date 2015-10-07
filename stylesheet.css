@@ -37,6 +37,11 @@ td {
 
 td.navigator {
 	vertical-align: middle;
+	height: 50px;
+}
+
+.navigator_table {
+	height: 50px;
 }
 
 .window {
@@ -45,17 +50,18 @@ td.navigator {
 	padding: 20px 0px 20px 0px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 13.5%;
+	margin-top: 25%;
 }
 
 .buttons {
-	border-radius: 5px;
+/*	border-radius: 5px;
 	border: 2px solid white;
-	background-color: #CC99CC;
-	height: auto;
-	width: 120px;
+	background-color: #E6E6FA;
+	height: auto;*/
 	margin: auto;
 	text-align: center;
+	font-size: 20px;
+	padding: 0 10px 0 10px;
 }
 
 /*Link Styling*/
@@ -75,7 +81,7 @@ a:visited {
 }
 
 a:hover {
-	color: #FFFFFF;
+	color: mediumpurple;
 	text-decoration: none;
 }
 
