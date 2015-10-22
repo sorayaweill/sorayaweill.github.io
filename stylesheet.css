@@ -54,7 +54,8 @@ td.navigator {
 	padding: 20px 0px 20px 0px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 20%;
+	margin-top: 25%; 
+	height: 700px;
 }
 
 .buttons {
@@ -93,5 +94,11 @@ a:active {
 	text-decoration: none;
 }
 
+ul{
+	list-style-type: circle
+}
 
+.bullet {
+	list-style-type: none
+}
 
