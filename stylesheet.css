@@ -1,30 +1,18 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
 @import url('http://fonts.googleapis.com/css?family=Open+Sans');
 
-p, h1, h3, li {
-        font-family: Open Sans;
+
+p, h1, h2, li {
+        font-family: Chaucer;
         text-align: center;
 }
 
 
-.container {
-	/*    Inspired by https://css-tricks.com/perfect-full-page-background-image/    */
-	background: url(flower.jpeg) no-repeat center center fixed; 
-  	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
-}
-
-body {
-	background-color: #E6E6FA;
-}
 
 table {
-	background-color: white;
 	margin-left: 0; 
     margin-right: 0;
-    padding: 0 30px 0 30px;
+    padding: 0 30px 0px 30px;
 }
 
 li {
@@ -37,16 +25,18 @@ th {
 }
 
 td {
-	vertical-align: top;
+	vertical-align: middle;
+	border: 0px;
 }
 
 td.navigator {
-	vertical-align: middle;
 	height: 50px;
+	border: 0;
 }
 
 .navigator_table {
 	height: 50px;
+	border: 0px;
 }
 
 .window {
@@ -54,8 +44,9 @@ td.navigator {
 	padding: 20px 0px 20px 0px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 25%; 
-	height: 700px;
+	margin-top: 13%; 
+	height: 100%;
+	border: 0px;
 }
 
 .buttons {
@@ -64,8 +55,9 @@ td.navigator {
 	background-color: #E6E6FA;
 	height: auto;*/
 	text-align: center;
-	font-size: 16px;
+	font-size: 20px;
 	padding: 0 2px 0 2px;
+	font-weight:bold;
 }
 
 /*Link Styling*/
@@ -75,22 +67,22 @@ a {
 }
 
 a:link {
-	color: darkblue;
+	color: #FFCC66;
 	text-decoration: none;
 }
 
 a:visited {
-	color: darkblue;
+	color: #FFCC66;
 	text-decoration: none;
 }
 
 a:hover {
-	color: mediumpurple;
+	color: #FFCC66;
 	text-decoration: none;
 }
 
 a:active {
-	color: darkblue;
+	color: #FFCC66;
 	text-decoration: none;
 }
 
@@ -101,4 +93,58 @@ ul{
 .bullet {
 	list-style-type: none
 }
+
+.personal_picture {
+	height: 1em;
+	width: 100em;
+	padding: 0px 0px 20px 0px;
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0.1%; 
+	height: 100%;
+	border: 0px;
+}
+
+body {
+	background-color: #FCFCFA; 
+}
+
+.col-md-6 {
+	color: black;
+	text-align: left;
+	font-style: Courier;
+	font-size: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 7%; 
+	height: 100%;
+	border: 0px;
+}
+
+.comingsoon {
+    height: 100em;
+	width: 100em;
+	padding: 0px 0px 0px 0px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20%; 
+	height: 100%;
+	border: 0px;
+}
+
+
+.formulaire {
+	height: 1em;
+	width: 20em;
+	padding: 0px 10px 0px 10px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 8%; 
+	height: 100%;
+	border: 0px;
+}
+
 
