@@ -1579,7 +1579,7 @@
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #5cc6a7;
+		color: #787878;
 		text-decoration: none;
 	}
 
@@ -1610,7 +1610,7 @@
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-			color:#5cc6a7;
+			color:#1f1815;
 			text-decoration: none;
 		}
 
@@ -2079,7 +2079,7 @@
 			}
 
 		.image.avatar {
-			border-radius: 100%;
+			/*border-radius: 100% */;
 		}
 
 			.image.avatar:before {
@@ -2087,7 +2087,7 @@
 			}
 
 			.image.avatar img {
-				border-radius: 100%;
+				/*border-radius: 100%*/;
 				width: 100%;
 			}
 
