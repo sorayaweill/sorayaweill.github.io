@@ -1942,8 +1942,9 @@
 
 	.box {
 		border-radius: 0.35em;
-		border: solid 2px #efefef;
+		* border: solid 2px #efefef; */
 		margin-bottom: 2em;
+		background-color:rgba(31, 24, 21, 0.32);
 		padding: 1.5em;
 	}
 
@@ -2480,7 +2481,7 @@
 	}
 
 		#header strong, #header b {
-			color: #5cc6a7;
+			color: #efefef;
 		}
 
 		#header h2, #header h3, #header h4, #header h5, #header h6 {
@@ -2488,7 +2489,7 @@
 		}
 
 		#header h1 {
-			color: #1f1815;
+			color: #e7e7e7;
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;
