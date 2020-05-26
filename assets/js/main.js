@@ -1,120 +1,208 @@
 /*
-	Strata by HTML5 UP
+	Paradigm Shift by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 (function($) {
 
-	var settings = {
+	var	$window = $(window),
+		$body = $('body');
 
-		// Parallax background effect?
-			parallax: true,
+	// Breakpoints.
+		breakpoints({
+			default:   ['1681px',   null       ],
+			xlarge:    ['1281px',   '1680px'   ],
+			large:     ['981px',    '1280px'   ],
+			medium:    ['737px',    '980px'    ],
+			small:     ['481px',    '736px'    ],
+			xsmall:    ['361px',    '480px'    ],
+			xxsmall:   [null,       '360px'    ]
+		});
 
-		// Parallax factor (lower = more intense, higher = less intense).
-			parallaxFactor: 20
+	// Play initial animations on page load.
+		$window.on('load', function() {
+			window.setTimeout(function() {
+				$body.removeClass('is-preload');
+			}, 100);
+		});
 
-	};
+	// Hack: Enable IE workarounds.
+		if (browser.name == 'ie')
+			$body.addClass('is-ie');
 
-	skel.breakpoints({
-		xlarge: '(max-width: 1800px)',
-		large: '(max-width: 1280px)',
-		medium: '(max-width: 980px)',
-		small: '(max-width: 736px)',
-		xsmall: '(max-width: 480px)'
-	});
+	// Mobile?
+		if (browser.mobile)
+			$body.addClass('is-mobile');
 
-	$(function() {
-
-		var $window = $(window),
-			$body = $('body'),
-			$header = $('#header');
-
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
-
-			$window.on('load', function() {
-				$body.removeClass('is-loading');
+	// Scrolly.
+		$('.scrolly')
+			.scrolly({
+				offset: 100
 			});
 
-		// Touch?
-			if (skel.vars.mobile) {
+	// Polyfill: Object fit.
+		if (!browser.canUse('object-fit')) {
 
-				// Turn on touch mode.
-					$body.addClass('is-touch');
+			$('.image[data-position]').each(function() {
 
-				// Height fix (mostly for iOS).
-					window.setTimeout(function() {
-						$window.scrollTop($window.scrollTop() + 1);
-					}, 0);
+				var $this = $(this),
+					$img = $this.children('img');
 
-			}
+				// Apply img as background.
+					$this
+						.css('background-image', 'url("' + $img.attr('src') + '")')
+						.css('background-position', $this.data('position'))
+						.css('background-size', 'cover')
+						.css('background-repeat', 'no-repeat');
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
+				// Hide img.
+					$img
+						.css('opacity', '0');
 
-		// Prioritize "important" elements on medium.
-			skel.on('+medium -medium', function() {
-				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
-				);
 			});
 
-		// Header.
+			$('.gallery > a').each(function() {
 
-			// Parallax background.
+				var $this = $(this),
+					$img = $this.children('img');
 
-				// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
-					if (skel.vars.browser == 'ie'
-					||	skel.vars.mobile)
-						settings.parallax = false;
+				// Apply img as background.
+					$this
+						.css('background-image', 'url("' + $img.attr('src') + '")')
+						.css('background-position', 'center')
+						.css('background-size', 'cover')
+						.css('background-repeat', 'no-repeat');
 
-				if (settings.parallax) {
+				// Hide img.
+					$img
+						.css('opacity', '0');
 
-					skel.on('change', function() {
+			});
 
-						if (skel.breakpoint('medium').active) {
+		}
 
-							$window.off('scroll.strata_parallax');
-							$header.css('background-position', 'top left, center center');
+	// Gallery.
+		$('.gallery')
+			.on('click', 'a', function(event) {
 
-						}
-						else {
+				var $a = $(this),
+					$gallery = $a.parents('.gallery'),
+					$modal = $gallery.children('.modal'),
+					$modalImg = $modal.find('img'),
+					href = $a.attr('href');
 
-							$header.css('background-position', 'left 0px');
+				// Not an image? Bail.
+					if (!href.match(/\.(jpg|gif|png|mp4)$/))
+						return;
 
-							$window.on('scroll.strata_parallax', function() {
-								$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
-							});
+				// Prevent default.
+					event.preventDefault();
+					event.stopPropagation();
 
-						}
+				// Locked? Bail.
+					if ($modal[0]._locked)
+						return;
+
+				// Lock.
+					$modal[0]._locked = true;
+
+				// Set src.
+					$modalImg.attr('src', href);
+
+				// Set visible.
+					$modal.addClass('visible');
+
+				// Focus.
+					$modal.focus();
+
+				// Delay.
+					setTimeout(function() {
+
+						// Unlock.
+							$modal[0]._locked = false;
+
+					}, 600);
+
+			})
+			.on('click', '.modal', function(event) {
+
+				var $modal = $(this),
+					$modalImg = $modal.find('img');
+
+				// Locked? Bail.
+					if ($modal[0]._locked)
+						return;
+
+				// Already hidden? Bail.
+					if (!$modal.hasClass('visible'))
+						return;
+
+				// Stop propagation.
+					event.stopPropagation();
+
+				// Lock.
+					$modal[0]._locked = true;
+
+				// Clear visible, loaded.
+					$modal
+						.removeClass('loaded')
+
+				// Delay.
+					setTimeout(function() {
+
+						$modal
+							.removeClass('visible')
+
+						setTimeout(function() {
+
+							// Clear src.
+								$modalImg.attr('src', '');
+
+							// Unlock.
+								$modal[0]._locked = false;
+
+							// Focus.
+								$body.focus();
+
+						}, 475);
+
+					}, 125);
+
+			})
+			.on('keypress', '.modal', function(event) {
+
+				var $modal = $(this);
+
+				// Escape? Hide modal.
+					if (event.keyCode == 27)
+						$modal.trigger('click');
+
+			})
+			.on('mouseup mousedown mousemove', '.modal', function(event) {
+
+				// Stop propagation.
+					event.stopPropagation();
+
+			})
+			.prepend('<div class="modal" tabIndex="-1"><div class="inner"><img src="" /></div></div>')
+				.find('img')
+					.on('load', function(event) {
+
+						var $modalImg = $(this),
+							$modal = $modalImg.parents('.modal');
+
+						setTimeout(function() {
+
+							// No longer visible? Bail.
+								if (!$modal.hasClass('visible'))
+									return;
+
+							// Set loaded.
+								$modal.addClass('loaded');
+
+						}, 275);
 
 					});
-
-				}
-
-		// Main Sections: Two.
-
-			// Lightbox gallery.
-				$window.on('load', function() {
-
-					$('#two').poptrox({
-						caption: function($a) { return $a.next('h3').text(); },
-						overlayColor: '#2c2c2c',
-						overlayOpacity: 0.85,
-						popupCloserText: '',
-						popupLoaderText: '',
-						selector: '.work-item a.image',
-						usePopupCaption: true,
-						usePopupDefaultStyling: false,
-						usePopupEasyClose: false,
-						usePopupNav: true,
-						windowMargin: (skel.breakpoint('small').active ? 0 : 50)
-					});
-
-				});
-
-	});
 
 })(jQuery);
